@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+        <img src="logo.png">
+          <h1>Form Pendaftaran</h1>
+          <p>Silakan isi form secara lengkap</p>
+        </div>
+  
+        <div class="form-container" >
+          <form id="registrationform" action="#" method="post">
+            <fieldset>
+            <legend>Data Mahasiswa</legend>
+            <div class="form-grup">
+              <div class="label">
+                <label for="studentName">Nama Lengkap</label>
+              </div>
+              <div class="input">
+                <input type="text" id="studentName" required placeholder="Isikan nama lengkap Anda">
+              </div>
+            </div>
+            <div class="form-grup">
+              <div class="label">
+                <label for="studentId">ID Siswa</label>
+              </div>
+              <div class="input">
+                <input type="text" id="studentId" required placeholder="Isikan Npm Anda">
+              </div>
+            </div>
+            <div class="form-grup">
+              <div class="label">
+                <label for="email">Email</label>
+              </div>
+              <div class="input">
+                <input type="email" id="email" required placeholder="email@gmail.com">
+              </div>
+            </div>
+            <div class="form-grup">
+                <div class="label">
+                  <label for="birthdate">Tanggal Lahir</label>
+                </div>
+                <div class="input">
+                  <input type="date" id="birthdate" required>
+                </div>
+              </div>
+            <div class="form-grup">
+              <div class="label">
+                <label for="password">Password</label>
+              </div>
+              <div class="input">
+                <input type="password" id="password" required placeholder="Password dengan huruf, angka dan symbol">
+              </div>
+            </div>
+            </fieldset>
+  
+  
+            <div class="form-grup">
+                <button type="submit"><img src="buttonsubmit.png"> KIRIM</button>
+              </div>
+            </div>
+          </form>
+        </div>
+  
+  
+      </div>
+
+      <footer>
+        <p>Copyright &copy; Leni Oktaviani, Teknik Informatika 2022</p>
+      </footer>
+
+    <script>
+        document.getElementById('registrationform').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const studentName = document.getElementById('studentName').value;
+            if (!studentName) {
+                alert('Nama Lengkap Wajib Diisi');
+                return;
+            }
+           
+            const studentId = document.getElementById('studentId').value;
+            if (!studentId) {
+                alert('Npm Siswa Wajib Diisi');
+                return;
+            }
+
+            const email = document.getElementById('email').value;
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Format email tidak valid');
+                return;
+            }
+
+            const password = document.getElementById('password').value;
+            if (password.length < 14 || !/[a-zA-Z]/.test(password) || !/[0-9]/.test(password) || !/[^a-zA-Z0-9]/.test(password)) {
+                alert('Password harus minimal 14 karakter dan mengandung huruf, angka, serta simbol');
+                return;
+            }
+
+            const birthdate = document.getElementById('birthdate').value;
+            if (!birthdate) {
+                alert('Tanggal lahir wajib diisi.');
+                return;
+            }
+
+            alert('Pendaftaraan Berhasil!');
+        });
+    </script>
+</body>
+</html>
